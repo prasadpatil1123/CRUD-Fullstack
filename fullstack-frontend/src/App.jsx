@@ -6,13 +6,13 @@ import Home from "./pages/Home";
 import AddUser from "./users/AddUser";
 import EditUser from "./users/EditUser";
 import ViewUser from "./users/ViewUser";
-import Layout from "./layout/Layout";
+import Navbar from "./layout/Navbar";
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Layout/>
+        <Navbar/>
         <Routes>
           <Route exact path="/" element={<Home/>} />
           <Route exact path="/Home" element={<Home/>} />

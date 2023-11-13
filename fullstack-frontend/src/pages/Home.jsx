@@ -1,11 +1,10 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
+import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 
-
-function Home() {
+export default function Home() {
   const [users, setUsers] = useState([]);
+
   const { id } = useParams();
 
   useEffect(() => {
@@ -17,8 +16,8 @@ function Home() {
     setUsers(result.data);
   };
 
-  const deleteUsers = async (id) => {
-    await axios.delete(`http://localhost:8080/users/${id}`);
+  const deleteUser = async (id) => {
+    await axios.delete(`http://localhost:8080/user/${id}`);
     loadUsers();
   };
 
@@ -37,11 +36,8 @@ function Home() {
           </thead>
           <tbody>
             {users.map((user, index) => (
-              // eslint-disable-next-line react/jsx-key
-              <tr>
-                <th scope="row" key={index}>
-                  {index + 1}
-                </th>
+              <tr key={user.id}>
+                <th scope="row">{index + 1}</th>
                 <td>{user.name}</td>
                 <td>{user.username}</td>
                 <td>{user.email}</td>
@@ -52,20 +48,18 @@ function Home() {
                   >
                     View
                   </Link>
-
                   <Link
                     className="btn btn-outline-primary mx-2"
-                     to={`/edituser/${user.id}`}
+                    to={`/edituser/${user.id}`}
                   >
                     Edit
                   </Link>
-
-                  <Button
+                  <button
                     className="btn btn-danger mx-2"
-                     onClick={() => deleteUser(User.id)}
+                    onClick={() => deleteUser(user.id)}
                   >
                     Delete
-                  </Button>
+                  </button>
                 </td>
               </tr>
             ))}
@@ -75,5 +69,3 @@ function Home() {
     </div>
   );
 }
-
-export default Home;

@@ -1,14 +1,14 @@
-import {Link} from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 
-function Navbar() {
+export default function Navbar() {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-light">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             Full Stack Application
           </Link>
-
           <button
             className="navbar-toggler"
             type="button"
@@ -22,13 +22,10 @@ function Navbar() {
           </button>
 
           <Link className="btn btn-outline-light" to="/adduser">
-          Add User
+            Add User
           </Link>
-
         </div>
       </nav>
     </div>
   );
 }
-
-export default Navbar;

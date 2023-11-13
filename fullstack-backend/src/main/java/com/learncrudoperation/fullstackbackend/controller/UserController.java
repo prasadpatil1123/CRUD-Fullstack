@@ -17,7 +17,7 @@ import com.learncrudoperation.fullstackbackend.model.User;
 import com.learncrudoperation.fullstackbackend.repository.UserRepository;
 
 @RestController
-@CrossOrigin("hhtp://localhost:3000")
+@CrossOrigin("hhtp://localhost:5173")
 public class UserController {
 	
 	@Autowired
