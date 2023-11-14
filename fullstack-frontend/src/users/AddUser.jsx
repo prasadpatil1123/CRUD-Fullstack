@@ -19,7 +19,8 @@ export default function AddUser() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:8080/user", user);
+    console.log(user);
+    await axios.post(`http://localhost:8080/user`, user);
     navigate("/");
   };
 
